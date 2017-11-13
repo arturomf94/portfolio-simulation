@@ -32,10 +32,12 @@ portfolio$amount <- rBootstrap(loan_number, mean_amount, sd_amount, min_amount, 
 
 portfolio$amount <- round(portfolio$amount / 5000,0) * 5000
 
-# Plot histogram and check distribution
+# Plot histogram and check stats
 
 ggplot(data=portfolio, aes(portfolio$amount)) + 
-  geom_histogram(binwidth = 5000, col = 'darkolivegreen4', fill = 'darkolivegreen3')
+  geom_histogram(binwidth = 5000, col = 'darkolivegreen4', fill = 'darkolivegreen3') +
+  ggtitle('Histogram of Loan Amounts') +
+  labs(y = 'Count', x = 'Amount')
 
 summary(portfolio$amount) 
 
