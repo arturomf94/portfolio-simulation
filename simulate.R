@@ -56,7 +56,7 @@ ggplot(data=portfolio, aes(portfolio$length)) +
   ggtitle('Histogram of Loan Lengths') +
   labs(y = 'Count', x = 'Length (Months)')
 
-#### Simulate Payment Frequency ####
+#### Simulate Loan Payment Frequency ####
 
 portfolio$frequency <- sample(c('Semanal','Catorcenal','Mensual'), size = length(portfolio$id), replace=TRUE, prob=c(0.05,0.05,.9))
 
@@ -67,3 +67,14 @@ ggplot(data=portfolio, aes(portfolio$frequency)) +
   ggtitle('Histogram of Loan Frenquencies') +
   labs(y = 'Count', x = 'Frequency')
 
+
+#### Simulate Loan Grade ####
+
+portfolio$grade <- sample(c('A','B','C','D','E','F'), size = length(portfolio$id), replace=TRUE, prob=c(0.03,.02,.10,.17,.55,.13))
+
+# Plot histogram
+
+ggplot(data=portfolio, aes(portfolio$grade)) + 
+  geom_bar(col = 'darkolivegreen4', fill = 'darkolivegreen3') +
+  ggtitle('Histogram of Loan Frenquencies') +
+  labs(y = 'Count', x = 'Grade')
